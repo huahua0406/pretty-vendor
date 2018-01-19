@@ -17,7 +17,7 @@
                       style="width:100%;position:absolute;left:0;top:0;z-index:100;"></x-header>
 
             <keep-alive>
-                <router-view class="router-view"/>
+                <router-view class="router-view" />
             </keep-alive>
 
             <tabbar slot="bottom"
@@ -113,7 +113,7 @@ export default {
             } else if (key === 'menu2') {
                 window.location.href =
                     'https://huahua0406.github.io/pretty-vendor/'
-            } else if(key === 'menu3') {
+            } else if (key === 'menu3') {
                 this.$router.push({ path: '/login' })
             }
         }
