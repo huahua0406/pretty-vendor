@@ -8,7 +8,8 @@
 
 ## 效果截图
 
-![](https://github.com/huahua0406/pretty-vendor/blob/master/screenshots/1.png)
+![](https://github.com/huahua0406/pretty-vendor/blob/master/screenshots/1.png
+)
 
 ## 技术栈
 
