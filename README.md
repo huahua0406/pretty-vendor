@@ -4,7 +4,7 @@
 
 ## 在线DEMO：
 
-> [在线演示戳我](https://huahua0406.github.io/pretty-vendor/)（请使用chrome开发者手机演示模式预览）
+> [在线演示戳我] (https://huahua0406.github.io/pretty-vendor/):point_left:（请使用chrome开发者手机演示模式预览）
 
 ## 效果截图
 
