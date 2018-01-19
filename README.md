@@ -8,7 +8,7 @@
 
 ## 效果截图
 
-![](https://huahua0406.github.io/pretty-vendor/1.png)
+![](https://huahua0406.github.io/pretty-vendor/screenshots/1.png)
 
 ## 技术栈
 
