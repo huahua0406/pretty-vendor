@@ -72,7 +72,7 @@ export default {
             showMenu: false,
             menus: {
                 menu1: '关于 Pretty Vendor ',
-                menu2: '喜欢就给我个starb吧 ^_^ ',
+                menu2: '喜欢就给我个star吧 ^_^ ',
                 menu3: '退出登录'
             }
         }

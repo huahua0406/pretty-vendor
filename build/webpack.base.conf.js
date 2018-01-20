@@ -53,7 +53,7 @@ const webpackConfig = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [resolve('src'), resolve('node_modules/webpack-dev-server/client'), resolve('test')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
