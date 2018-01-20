@@ -7,7 +7,7 @@
             <h2 class="app-name">零食商贩</h2>
         </div>
         <group>
-            <x-input placeholder="请输入手机号"
+            <x-input placeholder="11位手机号随便填"
                      :max="11"
                      type="tel"
                      v-model="phoneNumber"
@@ -47,7 +47,8 @@ export default {
             smsCode: ''
         }
     },
-    created() {
+    created() {},
+    deactivated() {
         localStorage.removeItem('token')
         localStorage.removeItem('userInfo')
         localStorage.removeItem('cartData')
