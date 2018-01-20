@@ -48,7 +48,7 @@ export default {
         }
     },
     created() {},
-    deactivated() {
+    activated() {
         localStorage.removeItem('token')
         localStorage.removeItem('userInfo')
         localStorage.removeItem('cartData')
