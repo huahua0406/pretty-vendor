@@ -33,7 +33,7 @@
                          ref="smallTopImg"
                          :src="product.main_img_url"
                          :class="[isFly ?'animate':'']"
-                         alt="image"></img>
+                         alt="image">
                 </div>
             </div>
             <div class="product-info-box">
@@ -94,14 +94,14 @@ export default {
     },
     created() {},
     activated() {
-        this.getALLProducts()
+        this.getAllProducts()
     },
     methods: {
         ...mapMutations(['ADD_TO_CART']),
         linkToCart() {
             this.$router.push({ path: '/page/cart' })
         },
-        getALLProducts() {
+        getAllProducts() {
             this.$http
                 .get(
                     'https://www.easy-mock.com/mock/5a4896ba62de717d44f2406e/api/v1/product/all'
@@ -117,6 +117,7 @@ export default {
             // 如果没登录，先去登录
             if (!this.userInfo) {
                 this.$router.push({ path: '/login' })
+                return
             }
             // 缺货时禁止点击
             if (!this.isDisabled) {

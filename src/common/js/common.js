@@ -1,46 +1,16 @@
-const chars = [
-    '0',
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    'A',
-    'B',
-    'C',
-    'D',
-    'E',
-    'F',
-    'G',
-    'H',
-    'I',
-    'J',
-    'K',
-    'L',
-    'M',
-    'N',
-    'O',
-    'P',
-    'Q',
-    'R',
-    'S',
-    'T',
-    'U',
-    'V',
-    'W',
-    'X',
-    'Y',
-    'Z'
-]
-export function generateMixed(n) {
-    var res = ''
-    for (var i = 0; i < n; i++) {
-        var id = Math.ceil(Math.random() * 35)
-        res += chars[id]
+/**
+ * 生成随机字符串(可指定长度)
+ * @param len
+ * @return {string}
+ */
+export function randomString(len) {
+    len = len || 8
+    var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678'
+    /**  默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1**/
+    var maxPos = $chars.length
+    var str = ''
+    for (var i = 0; i < len; i++) {
+        str += $chars.charAt(Math.floor(Math.random() * maxPos))
     }
-    return res
+    return str
 }

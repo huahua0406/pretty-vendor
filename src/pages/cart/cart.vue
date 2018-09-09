@@ -4,7 +4,7 @@
             <div class="cart-box">
                 <div class="cart-item vux-1px-b"
                      v-for="(item,index) in this.cartData"
-                     :key="item.id">
+                     :key="index">
                     <div class="cart-item-main">
                         <div class="cart-item-checkbox"
                              @click="toggleSelect(item.id)">
@@ -62,9 +62,9 @@
                     <span class="price-text">{{tolalPrice | formatMoney}}</span>
                     <span class="arrow-icon">
                         <img src="~@/assets/icon/arrow@grey.png"
-                             v-if="tolalPrice===0"></img>
+                             v-if="tolalPrice===0">
                         <img src="~@/assets/icon/arrow.png"
-                             v-else></img>
+                             v-else>
                     </span>
                 </div>
             </div>

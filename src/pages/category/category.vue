@@ -49,7 +49,8 @@ export default {
         }
     },
     created() {
-        this.getCategory()
+        // this.getCategory()
+        this.getData()
     },
     computed: {
         menuBanner() {
@@ -67,15 +68,14 @@ export default {
         linktoDetail(id) {
             this.$router.push({ path: '/page/detail', query: { id: id } })
         },
+        async getData() {
+            let res = await this.getCategory()
+            this.menu = res.data.data.category
+            this.getProduct(this.menu[0].id)
+        },
         getCategory() {
-            this.$http
-                .get(
-                    'https://www.easy-mock.com/mock/5a4896ba62de717d44f2406e/api/v1/category/all'
-                )
-                .then(res => {
-                    this.menu = res.data.data.category
-                    this.getProduct(this.menu[0].id)
-                })
+            return this.$http
+            .get('https://www.easy-mock.com/mock/5a4896ba62de717d44f2406e/api/v1/category/all')
         },
         getProduct(id) {
             this.$http

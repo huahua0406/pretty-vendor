@@ -1,5 +1,5 @@
 <template>
-    <div class="address">
+    <div class="add-address">
         <group>
             <x-input title="联系人"
                      placeholder="名字"
@@ -36,7 +36,7 @@ import {
     Cell
 } from 'vux'
 export default {
-    name: 'address',
+    name: 'add-address',
     data() {
         return {
             form: {

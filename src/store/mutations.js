@@ -1,5 +1,5 @@
 import * as types from './mutation-types'
-import {generateMixed} from './../common/js/common'
+import { randomString } from './../common/js/common'
 // 同步方法
 const mutations = {
     [types.UPDATE_USERINFO](state, { userInfo }) {
@@ -55,8 +55,7 @@ const mutations = {
         localStorage.setItem('userInfo', JSON.stringify(state.userInfo))
     },
     [types.PLACE_ORDER](state, orderItem) {
-        console.log(orderItem)
-        let orderNo = generateMixed(12) // 模拟生成随机订单号
+        let orderNo = randomString(12) // 模拟生成随机订单号
         let createdTime = new Date().getTime() // 当前时间戳
         let snapName =
             orderItem.productItem.length > 1
