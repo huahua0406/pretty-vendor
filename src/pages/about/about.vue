@@ -1,7 +1,7 @@
 <template>
     <div class="about">
-        <p>github地址：<br><a :href="url">https://github.com/huahua0406/pretty-vendor</a></p>
-        <p>本项目为开源项目，如有类同，纯属巧合。</p>
+        <p>github地址：<a :href="url">点这里 </a></p>
+        <p>喜欢就给我个star吧 ^_^ </p>
     </div>
 </template>
 
@@ -19,5 +19,8 @@ export default {
 <style scoped lang="less">
 .about{
     padding: 10px;
+    a{
+        color:red;
+    }
 }
 </style>
