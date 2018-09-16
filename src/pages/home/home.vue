@@ -49,8 +49,10 @@
 <script>
 import { Swiper, SwiperItem } from 'vux'
 import products from '@/components/Products'
+
 const bannerId = 1
 const themeIds = '1,2,3'
+
 export default {
     name: 'Home',
     data() {
@@ -78,7 +80,7 @@ export default {
         getBanner() {
             this.$http
                 .get(
-                    `https://www.easy-mock.com/mock/5a4896ba62de717d44f2406e/api/v1/banner/${bannerId}`
+                    `/banner/${bannerId}`
                 )
                 .then(res => {
                     this.imgList = res.data.data.items
@@ -87,7 +89,7 @@ export default {
         getTheme() {
             this.$http
                 .get(
-                    `https://www.easy-mock.com/mock/5a4896ba62de717d44f2406e/api/v1/theme?ids=${themeIds}`
+                    `/theme?ids=${themeIds}`
                 )
                 .then(res => {
                     this.themeList = res.data.data
@@ -96,7 +98,7 @@ export default {
         getRecent() {
             this.$http
                 .get(
-                    'https://www.easy-mock.com/mock/5a4896ba62de717d44f2406e/api/v1/product/recent'
+                    '/product/recent'
                 )
                 .then(res => {
                     this.recentList = res.data.data

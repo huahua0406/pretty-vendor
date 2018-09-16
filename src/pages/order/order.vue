@@ -33,7 +33,7 @@
         <div class="order-main">
             <div class="product-item"
                  v-for="(item,index) in selectedArr"
-                 :key="item.id">
+                 :key="index">
                 <div class="item-left">
                     <img :src="item.main_img_url">
                 </div>

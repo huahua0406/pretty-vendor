@@ -49,7 +49,6 @@ export default {
         }
     },
     created() {
-        // this.getCategory()
         this.getData()
     },
     computed: {
@@ -75,12 +74,12 @@ export default {
         },
         getCategory() {
             return this.$http
-            .get('https://www.easy-mock.com/mock/5a4896ba62de717d44f2406e/api/v1/category/all')
+            .get('/category/all')
         },
         getProduct(id) {
             this.$http
                 .get(
-                    'https://www.easy-mock.com/mock/5a4896ba62de717d44f2406e/api/v1/product/by_category',
+                    '/product/by_category',
                 {
                     params: {
                         id: id

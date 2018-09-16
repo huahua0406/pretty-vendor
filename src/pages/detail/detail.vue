@@ -104,7 +104,7 @@ export default {
         getAllProducts() {
             this.$http
                 .get(
-                    'https://www.easy-mock.com/mock/5a4896ba62de717d44f2406e/api/v1/product/all'
+                    '/product/all'
                 )
                 .then(res => {
                     let detailData = res.data.data.filter(item => {

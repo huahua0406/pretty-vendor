@@ -1,4 +1,5 @@
 /**
+ * 模拟订单号
  * 生成随机字符串(可指定长度)
  * @param len
  * @return {string}

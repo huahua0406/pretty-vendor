@@ -1,11 +1,11 @@
 import axios from 'axios'
-import qs from 'qs'
+import Qs from 'qs'
 
 /**
  * http配置
  */
 const instance = axios.create({
-    baseURL: '/api',
+    baseURL: 'https://www.easy-mock.com/mock/5a4896ba62de717d44f2406e/api/v1',
     timeout: 10000,
     withCredentials: true, // 是否允许带cookie这些
     headers: {
@@ -18,11 +18,11 @@ instance.interceptors.request.use(
     config => {
         // POST传参序列化
         if (config.method === 'post') {
-            config.data = qs.stringify(config.data)
+            config.data = Qs.stringify(config.data)
         }
         // 若是有做鉴权token , 就给头部带上token
-        if (localStorage.token) {
-            config.headers.Authorization = localStorage.token
+        if (window.localStorage.getItem('token')) {
+            config.headers.Authorization = window.localStorage.getItem('token')
         }
         return config
     },

@@ -7,7 +7,7 @@
             <h2 class="app-name">零食商贩</h2>
         </div>
         <group>
-            <x-input placeholder="11位手机号随便填"
+            <x-input placeholder="11位手机号"
                      :max="11"
                      type="tel"
                      v-model="phoneNumber"
@@ -19,7 +19,7 @@
                           :disabled="disabled"
                           @click.native="sendCode"></x-button>
             </x-input>
-            <x-input type="text"
+            <x-input type="number"
                      placeholder="请输入验证码"
                      v-model="verifyCode"
                      @on-enter="onLogin">
@@ -59,7 +59,7 @@ export default {
     methods: {
         ...mapMutations(['UPDATE_USERINFO']),
         sendCode() {
-            const reg = /^1[34578]\d{9}$/ // 手机号正则校验
+            const reg = /^1[345789]\d{9}$/ // 手机号正则校验
             if (!this.phoneNumber) {
                 this.$vux.toast.text('请输入手机号~', 'middle')
                 return
@@ -74,7 +74,7 @@ export default {
             // 获取验证
             this.$http
                 .post(
-                    'https://www.easy-mock.com/mock/5a4896ba62de717d44f2406e/api/v1/sendSms',
+                    '/sendSms',
                     { phoneNumber: this.phoneNumber }
                 )
                 .then(res => {
@@ -101,7 +101,7 @@ export default {
             }
         },
         onLogin() {
-            var reg = /^1[34578]\d{9}$/ // 手机号正则校验
+            var reg = /^1[345789]\d{9}$/ // 手机号正则校验
             if (!this.phoneNumber) {
                 this.$vux.toast.text('手机号不能为空~', 'middle')
                 return
@@ -125,7 +125,7 @@ export default {
             }
             this.$http
                 .post(
-                    'https://www.easy-mock.com/mock/5a4896ba62de717d44f2406e/api/v1/login',
+                    '/login',
                     data
                 )
                 .then(res => {
@@ -138,10 +138,10 @@ export default {
                         // vux 中提供的base64方法
                         // base64.encode('VUX')
                         // base64.decode('VlVY')
-                        localStorage.token = base64.encode(res.data.data.token)
-                        localStorage.userInfo = JSON.stringify(
+                        window.localStorage.setItem('token', base64.encode(res.data.data.token))
+                        window.localStorage.setItem('userInfo', JSON.stringify(
                             res.data.data.userInfo
-                        )
+                        ))
                         this.UPDATE_USERINFO({
                             userInfo: res.data.data.userInfo
                         })

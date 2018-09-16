@@ -19,14 +19,13 @@ export default {
         }
     },
     activated() {
-        console.log(this.$route.query.id)
         this.getAllTheme()
     },
     methods: {
         getAllTheme() {
             this.$http
                 .get(
-                    'https://www.easy-mock.com/mock/5a4896ba62de717d44f2406e/api/v1/theme/all'
+                    '/theme/all'
                 )
                 .then(res => {
                     let themeData = res.data.data.filter(item => {

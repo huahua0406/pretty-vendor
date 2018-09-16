@@ -129,7 +129,8 @@ router.beforeEach((to, from, next) => {
     // loading
     store.commit('UPDATE_LOADING', true)
     if (to.matched.some(r => r.meta.requireAuth)) {
-        if (localStorage.token) {
+        let token = window.localStorage.getItem('token')
+        if (token) {
             next()
         } else {
             next({
