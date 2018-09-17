@@ -21,7 +21,6 @@
             </keep-alive>
 
             <tabbar slot="bottom"
-                    style="position:fixed"
                     v-if="!isShowTabbar">
                 <tabbar-item link="/page/home"
                              :selected="$route.path === '/page/home'">
