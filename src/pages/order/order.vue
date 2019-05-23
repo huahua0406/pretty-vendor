@@ -3,7 +3,7 @@
         <div class="order-address-info"
              @click="editAddress()">
             <div class="address-box"
-                 v-if="this.userInfo.addressInfo">
+                 v-if="userInfo.addressInfo">
                 <div class="contact-box">
                     <div class="contact">
                         <div class="name">

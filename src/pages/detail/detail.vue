@@ -9,7 +9,7 @@
                      alt="icon-cart"
                      ref="topCart">
                 <span class="total-count"
-                      v-if="this.totalCount>0">{{this.totalCount}}</span>
+                      v-if="totalCount>0">{{totalCount}}</span>
             </div>
             <div class="detail-img">
                 <img :src="product.main_img_url"

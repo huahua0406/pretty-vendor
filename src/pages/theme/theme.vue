@@ -2,7 +2,7 @@
     <div class="theme">
         <div class="banner">
             <img :src="banner"
-                alt="">
+                alt="banner">
         </div>
         <products :products="themeList"></products>
     </div>

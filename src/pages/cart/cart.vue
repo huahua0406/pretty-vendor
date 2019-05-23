@@ -1,6 +1,6 @@
 <template>
     <div class="cart">
-        <div v-if="this.cartData.length>0">
+        <div v-if="cartData.length>0">
             <div class="cart-box">
                 <div class="cart-item vux-1px-b"
                      v-for="(item,index) in this.cartData"
@@ -48,12 +48,12 @@
                 <div class="all-select"
                      @click="toggleAllCheck">
                     <img src="~@/assets/icon/all@selected.png"
-                         v-if="this.cartData.length===this.selectedArr.length"
+                         v-if="cartData.length===selectedArr.length"
                          alt="all">
                     <img src="~@/assets/icon/all.png"
                          alt=""
                          v-else>
-                    <span>全选({{this.selectedArr.length}})</span>
+                    <span>全选({{selectedArr.length}})</span>
                 </div>
                 <div class="all-price-cutmit"
                      :class="[tolalPrice===0?'disabled':'']">

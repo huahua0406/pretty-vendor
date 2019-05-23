@@ -9,7 +9,7 @@
         <div class="user-address"
              @click="editAddress()">
             <div class="address-info"
-                 v-if="this.userInfo.addressInfo">
+                 v-if="userInfo.addressInfo">
                 <h5 class="address-title">地址管理
                     <i class="icon-arrow"></i>
                 </h5>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="order-main">
                         <div class="item-left">
-                            <img :src="item.snap_img"></img>
+                            <img :src="item.snap_img">
                         </div>
                         <div class="item-middle">
                             <div>{{item.snap_name}}</div>

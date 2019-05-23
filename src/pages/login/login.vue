@@ -59,7 +59,7 @@ export default {
     methods: {
         ...mapMutations(['UPDATE_USERINFO']),
         sendCode() {
-            const reg = /^1[345789]\d{9}$/ // 手机号正则校验
+            const reg = /^1[3456789]\d{9}$/ // 手机号正则校验
             if (!this.phoneNumber) {
                 this.$vux.toast.text('请输入手机号~', 'middle')
                 return

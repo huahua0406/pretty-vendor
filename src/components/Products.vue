@@ -1,10 +1,9 @@
 <template>
     <div class="products">
         <div class="products-item"
-            v-for="(item,index) in products"
-            :key="index"
-            :data-id="item.id"
-            @click="linkToDetail">
+            v-for="item in products"
+            :key="item.id"
+            @click="linkToDetail(item.id)">
             <img :src="item.main_img_url"
                 alt="image"
                 class="products-image">
@@ -25,9 +24,8 @@ export default {
     },
     created() {},
     methods: {
-        linkToDetail(e) {
-            let id = e.currentTarget.dataset.id
-            this.$router.push({ path: '/page/detail', query: { id: id } })
+        linkToDetail(id) {
+            this.$router.push({ path: '/page/detail', query: { id } })
         }
     }
 }

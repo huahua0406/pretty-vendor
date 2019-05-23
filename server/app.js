@@ -4,7 +4,6 @@ var app = express()
 // 设置静态资源目录
 app.use('/static', express.static('static'))
 
-
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/' + 'index.html')
 })

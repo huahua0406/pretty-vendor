@@ -35,6 +35,7 @@ import {
     Value2nameFilter as value2name,
     Cell
 } from 'vux'
+
 export default {
     name: 'add-address',
     data() {
