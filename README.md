@@ -1,1 +1,1 @@
-> vue-cli2 打包后dist文件
+> vue-cli 打包后dist文件
