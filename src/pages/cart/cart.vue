@@ -3,7 +3,7 @@
         <div v-if="cartData.length>0">
             <div class="cart-box">
                 <div class="cart-item vux-1px-b"
-                     v-for="(item,index) in this.cartData"
+                     v-for="(item,index) in cartData"
                      :key="index">
                     <div class="cart-item-main">
                         <div class="cart-item-checkbox"
@@ -96,7 +96,7 @@ export default {
             'DELETE_PRODUCT',
             'ADD_PRODUCT',
             'CUT_PRODUCT',
-            'TOGGLE_ALLCHEK'
+            'TOGGLE_ALLCHECK'
         ]),
         linkToDetail(id) {
             this.$router.push({ path: '/page/detail', query: { id: id } })

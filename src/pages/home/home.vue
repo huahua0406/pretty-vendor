@@ -23,13 +23,11 @@
                     v-for="(item,index) in themeList"
                     :key="index"
                     @click="linkToTheme(item.id)"
-                    :data-name="item.name">
+                    >
                     <img :src="item.topic_img.url"
                         alt="">
                 </div>
                 <div class="selectd-item"
-                    :data-id="item.id"
-                    :data-name="item.name"
                     @click="linkToTheme(item.id)"
                     v-else>
                     <img :src="item.topic_img.url"
@@ -95,7 +93,7 @@ export default {
                     this.themeList = res.data.data
                 })
         },
-        getRecent() {
+        ce() {
             this.$http
                 .get(
                     '/product/recent'

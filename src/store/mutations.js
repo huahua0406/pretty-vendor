@@ -42,7 +42,7 @@ const mutations = {
         state.cartData[index].count--
         localStorage.setItem('cartData', JSON.stringify(state.cartData))
     },
-    [types.TOGGLE_ALLCHEK](state, { flag }) {
+    [types.TOGGLE_ALLCHECK](state, { flag }) {
         let data = state.cartData
         let len = state.cartData.length
         for (let i = 0; i < len; i++) {
