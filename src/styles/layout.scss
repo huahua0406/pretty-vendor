@@ -1,0 +1,32 @@
+/* 布局相关 */
+.flex {
+    display: flex;
+    align-items: center;
+  }
+  .flow-col {
+    flex-flow: column;
+  }
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .flex-none {
+    flex: none;
+  }
+  .align-stretch {
+    align-items: stretch;
+  }
+  .align-start {
+    align-self: flex-start;
+  }
+  .justify-ct {
+    justify-content: center;
+  }
+  .justify-sa {
+    justify-content: space-around;
+  }
+  .justify-sb {
+    justify-content: space-between;
+  }

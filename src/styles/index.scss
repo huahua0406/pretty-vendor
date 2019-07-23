@@ -1,0 +1,33 @@
+@import './reset.css';
+@import './_var.scss';
+@import './mixin.scss';
+@import './1px.scss';
+@import './transition.scss';
+
+body {
+  background-color: #fff;
+  // background-color: #f8f8f8;
+  // background: #fafafa;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: PingFang SC,Helvetica Neue,Arial,sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body{
+  height: 100%;
+}
+
+#app {
+  height: 100%;
+}
+
+
+
+
+.van-swipe__indicator {
+    background-color: #323232;
+}

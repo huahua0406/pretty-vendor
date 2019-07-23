@@ -1,0 +1,50 @@
+//一像素边框
+@import './_mixin.scss';
+
+.border-1px,
+.border-1px-t,
+.border-1px-b,
+.border-1px-tb,
+.border-1px-l,
+.border-1px-r {
+  position: relative;
+}
+
+.border-1px {
+  &:before {
+    @include setLine();
+  }
+}
+
+.border-1px-t {
+  &:before {
+    @include setTopLine();
+  }
+}
+
+.border-1px-b {
+  &:after {
+    @include setBottomLine();
+  }
+}
+
+.border-1px-tb {
+  &:before {
+    @include setTopLine();
+  }
+  &:after {
+    @include setBottomLine();
+  }
+}
+
+.border-1px-l {
+  &:before {
+    @include setLeftLine();
+  }
+}
+
+.border-1px-r {
+  &:after {
+    @include setRightLine();
+  }
+}
