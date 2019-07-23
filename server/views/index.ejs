@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>EJS Welcome to <%= title %></p>
+    <div>
+        <input type="text" placeholder="用户名" class="username"><br>
+        <input type="password" placeholder="密码" class="password"><br>
+        <input type="submit" value="注册" class="btn_reg">
+    </div>
+    <hr>
+    <div>
+        <input type="text" class="username"><br>
+        <input type="text" class="password"><br>
+        <input type="submit" value="登录" class="btn_login">
+    </div>
+    <hr>
+    <div>
+        <input type="submit" value="获取用户信息" id="get">
+    </div>
+    <hr>
+    <div>
+        <input type="submit" value="测试微信菜单" id="menu">
+    </div>
+    <div>
+        <input type="submit" value="获取验证码" id="getCode">
+    </div>
+
+    <form action="/api/v1/public/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file"/>
+        <input type="submit" value="upload"/>
+    </form>
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            // 注册
+            $(".btn_reg").on('click', function() {  //添加点击事件
+                var name = $('.username').val();
+                var pass = $('.password').val();
+                $.ajax({
+                    type:'POST',
+                    url:'/api/v1/user/register',
+                    data:{
+                        username:name,
+                        password:pass
+                    },
+                    success:function(res){
+                        alert(res);
+                    }
+                })
+            })
+            $(".btn_login").on('click', function() {  //添加点击事件
+                var name = $('.username').val();
+                var pass = $('.password').val();
+                $.ajax({
+                    type:'POST',
+                    url:'/api/v1/user/login',
+                    data:{
+                        username:name,
+                        password:pass
+                    },
+                    success:function(res){
+                        if(res.code==0){
+                            localStorage.setItem('token',res.token)
+                            alert(res.msg);
+                        }
+                    }
+                })
+            })
+
+            $("#get").on('click', function() {  //添加点击事件
+                $.ajax({
+                    type:'POST',
+                    url:'/api/v1/user/userinfo',
+                    data:{},
+                    headers : {'Authorization':'Bearer '+localStorage.getItem('token')},
+                    success:function(res){
+                        if(res.code==0){
+                            alert("获取成功");
+                        }
+                    }
+                })
+            })
+
+            $('#menu').on('click', function() {  //添加点击事件
+                // $.ajax({
+                //     type:'POST',
+                //     url:'/wechat/createMenu',
+                //     data:{},
+                //     success:function(res){
+                //         if(res.code==0){
+                //             alert("获取成功");
+                //         }
+                //     }
+                // })
+            })
+
+            $('#getCode').on('click', function() {  //添加点击事件
+                // $.ajax({
+                //     type:'POST',
+                //     url:'/wechat/createMenu',
+                //     data:{},
+                //     success:function(res){
+                //         if(res.code==0){
+                //             alert("获取成功");
+                //         }
+                //     }
+                // })
+            })
+
+        })
+    </script>
+  </body>
+</html>
