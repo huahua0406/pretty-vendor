@@ -1,6 +1,8 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('vendor','root','',{
-    host:'localhost',
+const config = require('./config');
+
+const sequelize = new Sequelize(config.dbConfig.database, config.dbConfig.user, config.dbConfig.password,{
+    host: config.dbConfig.host,
     dialect:'mysql',
     dialectOptions:{
         //字符集

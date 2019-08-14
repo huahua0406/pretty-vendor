@@ -18,7 +18,7 @@ Category.hasMany(Product,{
 })
 
 class CategoryModel {
-    static async getAll(id){
+    static async getAll(){
         return await Category.findAll({
             include:[{
                 model:Image,

@@ -4,14 +4,14 @@ var https = require('https')
 
 router.prefix('/wechat')
 
-const wechat = require('../config/wechat') 
-const util = require('../utils/util') 
+const config = require('../config/config')
+const util = require('../utils/util')
 
 // 配置get路由
 router.get('/', async (ctx, next) => {
     console.log(ctx.query);
     const { signature, timestamp, nonce, echostr } = ctx.query
-    const TOKEN = wechat.token
+    const TOKEN = config.wechatConfig.token
     if (signature === util.getSignature(timestamp, nonce, TOKEN)) {
         return ctx.body = echostr
     }else{
@@ -36,7 +36,7 @@ router.post('/', async (ctx, next) => {
             if(message.Event==='subscribe'){//关注
                 var createTime = Date.parse(new Date())/1000;
                 ctx.type='application/xml';
-                var reply=`<xml> 
+                var reply=`<xml>
                             <ToUserName><![CDATA[${message.FromUserName}]]></ToUserName>
                             <FromUserName><![CDATA[${message.ToUserName}]]></FromUserName>
                             <CreateTime>${createTime}</CreateTime>
@@ -69,8 +69,8 @@ router.post('/', async (ctx, next) => {
 // 创建微信公众号菜单
 router.post('/createMenu', async (ctx, next) => {
     try{
-        const appID = wechat.appID
-        const appSecret = wechat.appSecret
+        const appID = config.wechatConfig.appID
+        const appSecret = config.wechatConfig.appSecret
         const retToken = await getAccessToken(appID, appSecret)
         const { access_token } = retToken
         console.log(access_token);//

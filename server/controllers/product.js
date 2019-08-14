@@ -3,60 +3,65 @@ const ProductModel = require("../models/product");
 class ProductController {
 
     static async getAllProduct(ctx){
-        try{
-            let data = await ProductModel.getAll();
-            ctx.response.status = 200;
-            ctx.body = {
-                code: 0,
-                msg: '查询成功',
-                data
-            }
-        }catch(err){
-            ctx.response.status = 412;
-            ctx.body = {
-                code: 412,
-                msg: '查询失败',
-                err
-            }
+
+        const result = await ProductModel.getAll();
+
+        if(result){
+          ctx.body = {
+              code: 0,
+              msg: '查询成功',
+              data: result
+          }
+        }else{
+          ctx.body = {
+              code: -1,
+              msg: '查询失败'
+          }
         }
     }
 
     static async getRecentProduct(ctx){
-        try{
-            let data = await ProductModel.getRecent();
-            ctx.response.status = 200;
-            ctx.body = {
-                code: 0,
-                msg: '查询成功',
-                data
-            }
-        }catch(err){
-            ctx.response.status = 412;
-            ctx.body = {
-                code: 412,
-                msg: '查询失败',
-                err
-            }
+
+      const result = await ProductModel.getRecent();
+
+      if(result){
+        ctx.body = {
+            code: 0,
+            msg: '查询成功',
+            data: result
         }
+      }else{
+        ctx.body = {
+            code: -1,
+            msg: '查询失败'
+        }
+      }
+
     }
 
     static async getProductDetail(ctx){
-        let id = ctx.params.id;
-        try{
-            let data = await ProductModel.getProductDetail(id);
-            ctx.response.status = 200;
+        let product_id = parseInt(ctx.params.id);
+        if(product_id){
+          const result = await ProductModel.getProductDetail(product_id);
+
+          if(result){
             ctx.body = {
                 code: 0,
                 msg: '查询成功',
-                data
+                data: result
             }
-        }catch(err){
-            ctx.response.status = 412;
+          }else{
             ctx.body = {
-                code: 412,
-                msg: '查询失败',
-                data: err
+                code: -1,
+                msg: '查询失败'
             }
+          }
+
+        }else{
+          ctx.body = {
+              code: -1,
+              msg: '缺少参数product_id'
+          }
         }
     }
 }

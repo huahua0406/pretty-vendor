@@ -2,23 +2,21 @@ const BannerModel = require("../models/banner");
 
 class BannerController {
 
-    static async getBannerItems(ctx){
-        let id = ctx.params.id;
-        if(id){
+    static async getBannerById(ctx){
+        const banner_id = parseInt(ctx.params.id);
+        if(banner_id){
             try{
-                let items = await BannerModel.getBannerItemsByID(id);
-                let info = await BannerModel.getBannerItemInfo(id);
-                ctx.response.status = 200;
+                let banner_items = await BannerModel.getBannerItems(banner_id);
+                let banner_info = await BannerModel.getBannerInfo(banner_id);
                 ctx.body = {
                     code: 0,
                     msg: '查询成功',
                     data:{
-                        items,
-                        info
+                        banner_items,
+                        banner_info
                     }
                 }
             }catch(err){
-                ctx.response.status = 412;
                 ctx.body = {
                     code: 412,
                     msg: '查询失败',
@@ -26,10 +24,9 @@ class BannerController {
                 }
             }
         }else {
-            ctx.response.status = 200;
             ctx.body = {
                 code: -1,
-                msg: 'banner_id 必须传'
+                msg: '缺少banner_id参数'
             }
         }
     }

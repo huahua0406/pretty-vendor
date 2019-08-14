@@ -29,18 +29,20 @@ BannerItem.belongsTo(Image, {
 
 class BannerModel {
 
-    static async getBannerItemInfo(id){
+    static async getBannerInfo(id){
         return await Banner.findOne({
             where:{
                 id
             },
-            attributes:['name','description', ['id', 'banner_id']]
-            //将id属性重命名为banenr_id
+            attributes:['name','description', ['id', 'banner_id']] //将id属性重命名为banenr_id
         });
     }
 
-    static async getBannerItemsByID(banner_id){
+    static async getBannerItems(banner_id){
         return await BannerItem.findAll({
+            where:{
+                banner_id
+            },
             //声明要包含的模型，之前声明的关系将在这里发挥作用
             include:[{
                 model:Image,
@@ -51,9 +53,6 @@ class BannerModel {
             attributes:{
                 include:['key_word'],
                 exclude:['img_id','id','delete_time','update_time']
-            },
-            where:{
-                banner_id
             }
         });
     }
