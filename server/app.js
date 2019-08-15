@@ -7,6 +7,9 @@ const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const jwt = require('koa-jwt')
 
+// 配置文件
+const config = require('./config/config')
+
 // routes
 const index = require('./routes/index')
 const user = require('./routes/user')
@@ -62,17 +65,13 @@ app.use((ctx, next) => {
     });
 });
 
-
-/* TODO:配置文件jwt密钥 */
-const secret = 'secret';
-
 /* 路由权限控制 */
 app.use(jwt({
-    secret: secret
+    secret: config.jwt.secret
 }).unless({
     // 设置login、register接口，可以不需要认证访问
     path: [
-        /\/api\/v1\/user\/register/, 
+        /\/api\/v1\/user\/register/,
         /\/api\/v1\/user\/login/,
         /\/api\/v1\/public\/getCaptcha/,
         /\/api\/v1\/public\/upload/,

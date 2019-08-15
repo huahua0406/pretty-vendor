@@ -4,14 +4,15 @@ var https = require('https')
 
 router.prefix('/wechat')
 
+// 配置文件
 const config = require('../config/config')
 const util = require('../utils/util')
 
 // 配置get路由
 router.get('/', async (ctx, next) => {
-    console.log(ctx.query);
+    // console.log(ctx.query);
     const { signature, timestamp, nonce, echostr } = ctx.query
-    const TOKEN = config.wechatConfig.token
+    const TOKEN = config.wechat.token
     if (signature === util.getSignature(timestamp, nonce, TOKEN)) {
         return ctx.body = echostr
     }else{
@@ -22,7 +23,6 @@ router.get('/', async (ctx, next) => {
 // 配置post路由
 router.post('/', async (ctx, next) => {
     try{
-        // TODO
         // 取原始数据
         var xml = await getRawBody(ctx.req,{
             length: ctx.request.length,
@@ -31,7 +31,7 @@ router.post('/', async (ctx, next) => {
         });
         var content = await util.parseXMLAsync(xml);
         var message= util.formatMessage(content.xml);
-        console.log(message);
+        // console.log(message);
         if(message.MsgType==='event'){
             if(message.Event==='subscribe'){//关注
                 var createTime = Date.parse(new Date())/1000;
@@ -69,13 +69,12 @@ router.post('/', async (ctx, next) => {
 // 创建微信公众号菜单
 router.post('/createMenu', async (ctx, next) => {
     try{
-        const appID = config.wechatConfig.appID
-        const appSecret = config.wechatConfig.appSecret
+        const appID = config.wechat.appID
+        const appSecret = config.wechat.appSecret
         const retToken = await getAccessToken(appID, appSecret)
         const { access_token } = retToken
-        console.log(access_token);//
-        result = await makeMenu(access_token)
-
+        // console.log(access_token);
+        result = await createMenu(access_token)
         ctx.body = {
             result
         }
@@ -109,7 +108,7 @@ function getAccessToken(appid, appsecret) {
 }
 
 
-function makeMenu(access_token){
+function createMenu(access_token){
 
     return new Promise((resolve, reject) => {
         var postData = JSON.stringify({
@@ -124,8 +123,8 @@ function makeMenu(access_token){
             path: `/cgi-bin/menu/create?access_token=${access_token}`,
             method: 'POST',
             headers:{
-                'Content-Type':'application/json',
-                'Content-Length':Buffer.byteLength(postData)
+                'Content-Type':' application/json',
+                'Content-Length': Buffer.byteLength(postData)
             }
         };
         const req = https.request(options, (res) => {

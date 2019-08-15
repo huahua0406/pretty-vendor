@@ -78,8 +78,7 @@ class UserController {
           }else{
             ctx.body = {
                 code: -1,
-                msg: '用户名或密码错误',
-                data: result
+                msg: '用户名或密码错误'
             }
           }
 
@@ -128,7 +127,7 @@ class UserController {
     }
 }
 
-
+// TODO: 引入配置文件secret
 /* 获取一个期限为1小时的token */
 function getToken(payload = {}) {
     return jwt.sign(payload, 'secret', { expiresIn: '1h' });
