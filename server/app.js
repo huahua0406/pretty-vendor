@@ -80,7 +80,7 @@ app.use(jwt({
 }));
 
 /*自定义中间件*/
-// const test = require('./middleware/test')
+// const test = require('./middlewares/test')
 // app.use(test())
 /**************/
 

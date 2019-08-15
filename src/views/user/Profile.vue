@@ -1,15 +1,20 @@
 <template>
-  <div>
-    profile
-  </div>
+    <div>
+        <van-uploader :after-read="afterRead" />
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'Profile'
-}
+    name: 'Profile',
+    methods: {
+        afterRead(file) {
+            // 此时可以自行将文件上传至服务器
+            console.log(file);
+        }
+    }
+};
 </script>
 
 <style lang="scss" scoped>
-
 </style>

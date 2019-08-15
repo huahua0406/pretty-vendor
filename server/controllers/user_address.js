@@ -47,9 +47,8 @@ class UserAddressController {
               }
             }else{
               ctx.body = {
-                code: 412,
-                msg: '用户地址修改失败',
-                err
+                code: -1,
+                msg: '用户地址修改失败'
               }
             }
 
@@ -65,7 +64,7 @@ class UserAddressController {
         let user_id = ctx.state.user.user_id;
         if(user_id){
             const result = await UserAddressModel.getAddressById(user_id);
-            
+
             if(result){
               ctx.body = {
                   code: 0,
@@ -75,8 +74,7 @@ class UserAddressController {
             }else{
               ctx.body = {
                   code: -1,
-                  msg: '查询失败',
-                  err
+                  msg: '查询失败'
               }
             }
 

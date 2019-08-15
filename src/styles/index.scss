@@ -5,9 +5,9 @@
 @import './transition.scss';
 
 body {
-  background-color: #fff;
-  // background-color: #f8f8f8;
-  // background: #fafafa;
+//   background-color: #fff;
+  background-color: #f8f8f8;
+//   background: #fafafa;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: PingFang SC,Helvetica Neue,Arial,sans-serif;
@@ -27,7 +27,14 @@ body{
 
 
 
-
+// 修改vant样式
 .van-swipe__indicator {
     background-color: #323232;
+}
+
+.van-button--primary {
+    background-color: #ab956d;
+    border: 1px solid #ab956d;
+    font-size: 16px;
+    color: #fff;
 }

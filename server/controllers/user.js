@@ -107,7 +107,7 @@ class UserController {
             const result = await UserModel.userInfo(user.user_id);
             if(result){
               ctx.body = {
-                  code: 200,
+                  code: 0,
                   msg: '查询成功',
                   data:result
               }

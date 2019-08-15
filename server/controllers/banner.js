@@ -6,8 +6,8 @@ class BannerController {
         const banner_id = parseInt(ctx.params.id);
         if(banner_id){
             try{
-                let banner_items = await BannerModel.getBannerItems(banner_id);
-                let banner_info = await BannerModel.getBannerInfo(banner_id);
+                const banner_items = await BannerModel.getBannerItems(banner_id);
+                const banner_info = await BannerModel.getBannerInfo(banner_id);
                 ctx.body = {
                     code: 0,
                     msg: '查询成功',
@@ -18,7 +18,7 @@ class BannerController {
                 }
             }catch(err){
                 ctx.body = {
-                    code: 412,
+                    code: -1,
                     msg: '查询失败',
                     err
                 }
