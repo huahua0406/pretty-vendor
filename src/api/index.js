@@ -7,12 +7,13 @@ import home from '@/api/home'
 import category from './category'
 import product from '@/api/product'
 import user from '@/api/user'
-// import user from '@/api/user'
+import common from '@/api/common'
 // 导出接口
 export default {
   ...example,
   ...home,
   ...category,
   ...product,
-  ...user
+  ...user,
+  ...common
 }

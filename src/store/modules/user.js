@@ -1,19 +1,19 @@
 export default {
-  namespaced: true,
-  state: {
-    userInfo: {},
-    addrInfo: {}
-  },
+    namespaced: true,
+    state: {
+        userInfo: {},
+        addressInfo: {}
+    },
 
-  mutations: { // 同步方法代替构造器
-    UPDATE_USERINFO (state, user) {
-      state.userInfo = user
-    }
-  },
+    mutations: {
+        UPDATE_USERINFO(state, user) {
+            state.userInfo = user;
+        }
+    },
 
-  actions: {
-    updateUserInfo (context, user) {
-      context.commit('UPDATE_USERINFO', user)
+    actions: {
+        updateUserInfo(context, user) {
+            context.commit('UPDATE_USERINFO', user);
+        }
     }
-  }
-}
+};

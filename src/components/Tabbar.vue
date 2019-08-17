@@ -1,26 +1,9 @@
 <template>
-    <van-tabbar
-        :z-index="99"
-        active-color="#AB956D"
-        class="tabbar"
-        fixed
-        inactive-color="#999"
-        v-model="active"
-    >
-        <van-tabbar-item
-            :key="index"
-            :to="item.path"
-            v-for="(item,index) in tabbars"
-        >
+    <van-tabbar :z-index="99" active-color="#AB956D" class="tabbar" fixed inactive-color="#999" v-model="active">
+        <van-tabbar-item :key="index" :to="item.path" v-for="(item,index) in tabbars">
             <span>{{item.title}}</span>
-            <template
-                slot="icon"
-                slot-scope="props"
-            >
-                <span
-                    :class="props.active ? item.active : item.normal"
-                    class="icon"
-                ></span>
+            <template slot="icon" slot-scope="props">
+                <span :class="props.active ? item.active : item.normal" class="icon"></span>
             </template>
         </van-tabbar-item>
     </van-tabbar>

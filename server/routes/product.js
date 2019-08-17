@@ -3,9 +3,8 @@ const ProductController = require('../controllers/product');
 
 router.prefix('/api/v1')
 
-//获取
-router.get('/product/all',ProductController.getAllProduct)
-router.get('/product/recent',ProductController.getRecentProduct)
+router.get('/product/get_all',ProductController.getAllProduct)
+router.get('/product/get_recent',ProductController.getRecentProduct)
 router.get('/product/:id',ProductController.getProductDetail)
 
 

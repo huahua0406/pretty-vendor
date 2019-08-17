@@ -31,8 +31,8 @@
             </div>
             <div class="cart-footer">
                 <div @click="_toggleAllChecked" class="all-select">
-                    <img alt="all" src="~@/assets/icon/all@selected.png" v-if="isAllChecked" />
-                    <img alt="all" src="~@/assets/icon/all.png" v-else />
+                    <img alt="all" src="@/assets/icon/all@selected.png" v-if="isAllChecked" />
+                    <img alt="all" src="@/assets/icon/all.png" v-else />
                     <span>{{allCheckedText}}</span>
                 </div>
                 <div :class="tolalPrice===0?'disabled':''" @click="onSubmit" class="all-price-cutmit">
@@ -40,8 +40,8 @@
                     <span class="accounts-btn">下单</span>
                     <span class="price-text">{{tolalPrice | formatPrice}}</span>
                     <span class="arrow-icon">
-                        <img src="~@/assets/icon/arrow@grey.png" v-if="tolalPrice===0" />
-                        <img src="~@/assets/icon/arrow.png" v-else />
+                        <img src="@/assets/icon/arrow@grey.png" v-if="tolalPrice===0" />
+                        <img src="@/assets/icon/arrow.png" v-else />
                     </span>
                 </div>
             </div>
@@ -82,7 +82,8 @@ export default {
     methods: {
         ...mapActions('cart', ['addProduct', 'cutProduct', 'delProduct', 'toggleSingleChecked', 'toggleAllChecked']),
         onSubmit() {
-            this.$toast('点击结算');
+            console.log()
+            this.$toast(`总价：￥ ${this.tolalPrice}`);
         },
         findIndexById(id) {
             return this.cartList.findIndex(item => {

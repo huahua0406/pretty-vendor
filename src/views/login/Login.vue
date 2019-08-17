@@ -21,6 +21,7 @@
 
 <script>
 import md5 from 'js-md5';
+import { mapActions } from 'vuex';
 export default {
     name: 'Login',
     data() {
@@ -33,6 +34,7 @@ export default {
         };
     },
     methods: {
+        ...mapActions('user', ['updateUserInfo']),
         onSubmit() {
             this.loading = true;
             this.$api
@@ -44,7 +46,15 @@ export default {
                     this.loading = false;
                     this.$toast('登录成功');
                     localStorage.setItem('token', res.data.token);
-                    this.$router.replace('/home');
+                    this.$api
+                        .getUserInfo()
+                        .then(res => {
+                            this.updateUserInfo(res.data.data)
+                            this.$router.replace('/home');
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        });
                 })
                 .catch(err => {
                     console.log(err);

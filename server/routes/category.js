@@ -3,7 +3,6 @@ const CategoryController = require('../controllers/category');
 
 router.prefix('/api/v1')
 
-//获取
-router.get('/category/all',CategoryController.getAllCategory)
+router.get('/category/get_all',CategoryController.getAllCategory)
 
 module.exports = router

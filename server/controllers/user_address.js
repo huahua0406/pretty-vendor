@@ -19,8 +19,7 @@ class UserAddressController {
           }else{
             ctx.body = {
                 code: -1,
-                msg: '用户地址保存失败',
-                err
+                msg: '用户地址保存失败'
             }
           }
         }else {
@@ -69,7 +68,7 @@ class UserAddressController {
               ctx.body = {
                   code: 0,
                   msg: '查询成功',
-                  data:result
+                  data: result
               }
             }else{
               ctx.body = {

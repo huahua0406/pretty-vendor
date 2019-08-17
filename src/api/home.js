@@ -5,10 +5,10 @@ export default {
     return request.get('/banner/1')
   },
   getTopicList () {
-    return request.get('/theme/all')
+    return request.get('/theme/get_all')
   },
   getRecentList () {
-    return request.get('/product/recent')
+    return request.get('/product/get_recent')
   },
   getTopicItem (id) {
     return request.get(`/theme/${id}`)

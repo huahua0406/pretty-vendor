@@ -1,6 +1,6 @@
 <template>
     <div>
-        <van-uploader :after-read="afterRead" />
+        上传头像：<van-uploader :after-read="afterRead" />
     </div>
 </template>
 
@@ -11,6 +11,16 @@ export default {
         afterRead(file) {
             // 此时可以自行将文件上传至服务器
             console.log(file);
+            let formData = new FormData();
+            formData.append('file', file.file);
+            this.$api
+                .uploadImage(formData)
+                .then(res => {
+                    console.log(res);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
         }
     }
 };

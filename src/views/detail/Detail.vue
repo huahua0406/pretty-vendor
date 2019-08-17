@@ -4,7 +4,7 @@
             <img :alt="goodsInfo.name" :src="goodsInfo.main_img_url" />
         </div>
         <div :class="{'animate':isShake}" @click="linkToCart" class="top-cart-wrapper" ref="topCart">
-            <img alt="icon-cart" src="~@/assets/icon/cart@top.png" />
+            <img alt="icon-cart" src="@/assets/icon/cart@top.png" />
             <span class="total-count" v-if="totalCount>0">{{totalCount}}</span>
         </div>
         <div class="add-cart-wrapper">
@@ -22,13 +22,19 @@
                 </transition>
             </div>
         </div>
+        <div class="product-info-box">
+            <div class="stock">{{goodsInfo.stock>0?'有货':'缺货'}}</div>
+            <div class="name">{{goodsInfo.name}}</div>
+            <div class="price">&yen; {{goodsInfo.price}}</div>
+        </div>
 
-        <van-tabs class="tabs-wrapper" v-model="activeIndex">
-            <van-tab title="标签 1">内容 1</van-tab>
-            <van-tab title="标签 2">内容 2</van-tab>
-            <van-tab title="标签 3">内容 3</van-tab>
+        <van-tabs class="tabs-wrapper" v-model="activeIndex" animated>
+            <van-tab title="商品详情">商品详情</van-tab>
+            <van-tab title="产品参数">产品参数</van-tab>
+            <van-tab title="售后保障">售后保障</van-tab>
         </van-tabs>
-        <van-popup position="bottom" v-model="showPicker">
+        <!-- popup -->
+        <van-popup position="bottom" v-model="showPicker" type="card">
             <van-picker :columns="columns" :default-index="0" @cancel="showPicker = false" @confirm="onConfirm" show-toolbar title="请选择数量" />
         </van-popup>
     </div>
@@ -47,7 +53,7 @@ export default {
             showPicker: false,
             isFly: false,
             isShake: false,
-            activeIndex: 2
+            activeIndex: 0
         };
     },
     computed: {
@@ -123,6 +129,7 @@ export default {
         position: relative;
         height: 0;
         padding-top: 100%;
+        background: #fff;
         img {
             position: absolute;
             left: 0;
@@ -220,6 +227,25 @@ export default {
             }
         }
     }
+
+    .product-info-box {
+        background: #fff;
+        padding: 8px 0;
+        color: #454552;
+        text-align: center;
+        .stock {
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        .name {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .price{
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+    }
 }
 
 @keyframes animateCartScale {
@@ -233,5 +259,9 @@ export default {
 
 .tabs-wrapper {
     margin-top: 20px;
+    background: #fff;
+    height: 180px;
+    text-align: center;
+    line-height:180px;
 }
 </style>

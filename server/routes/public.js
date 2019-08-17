@@ -19,7 +19,6 @@ router.get('/public/getCaptcha',async (ctx) => {
 });
 
 
-//文件上传 https://www.jianshu.com/p/f9062b969a6e
 //配置
 var storage = multer.diskStorage({
     //文件保存路径
@@ -29,15 +28,16 @@ var storage = multer.diskStorage({
     //修改文件名称
     filename: function (req, file, cb) {
         var fileFormat = (file.originalname).split(".");  //以点分割成数组，数组的最后一项就是后缀名
-        cb(null,Date.now() + "." + fileFormat[fileFormat.length - 1]);
+        cb(null, Date.now() + "." + fileFormat[fileFormat.length - 1]);
     }
 })
 //加载配置
 var upload = multer({ storage: storage });
 
 router.post('/public/upload',upload.single('file'),async(ctx,next)=>{
+    const prefix = 'http://localhost:3000/public/uploads/'
     ctx.body = {
-      filename: ctx.req.file.filename//返回文件名
+      filename: prefix + ctx.req.file.filename//返回文件名
     }
 })
 

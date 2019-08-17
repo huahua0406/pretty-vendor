@@ -17,8 +17,8 @@ export default {
   },
   getUserInfo (params) {
     return request({
-      url: '/user/info',
-      method: 'get',
+      url: '/user/get_user_info',
+      method: 'post',
       params
     })
   },

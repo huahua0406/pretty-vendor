@@ -1,6 +1,9 @@
 <template>
     <div class="user">
-        <img class="user-poster" src="https://img.yzcdn.cn/public_files/2017/10/23/8690bb321356070e0b8c4404d087f8fd.png" />
+        <div class="user-header">
+            <img alt="avatar" src="http://118.31.77.247/static/logo.png" class="avatar" />
+            <span class="nickname">{{userInfo.username}}</span>
+        </div>
         <van-row class="user-links">
             <van-col span="6">
                 <van-icon name="pending-payment" />待付款
@@ -31,22 +34,38 @@
 
 <script>
 import Tabbar from '@/components/Tabbar.vue';
-
+import { mapGetters } from 'vuex';
 export default {
     name: 'User',
     components: {
         Tabbar
+    },
+    computed:{
+        ...mapGetters(['userInfo']),
     }
 };
 </script>
 
 <style lang="scss">
 .user {
-    background: #f5f5f5;
-    &-poster {
+    background: #ededed;
+    &-header {
         width: 100%;
-        height: 53vw;
-        display: block;
+        height: 35vw;
+        background-color: #ab956d;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        font-size: 14px;
+    }
+    &-header .avatar {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+    }
+    &-header .nickname {
+        margin-left: 10px;
     }
     &-group {
         margin-bottom: 10px;

@@ -38,23 +38,6 @@ const sequelize = new Sequelize(config.db.database, config.db.user, config.db.pa
     timezone: '+08:00'  //东八时区
 });
 
-// https://www.jianshu.com/p/3e35db2c8d6c
-// https://www.jianshu.com/p/bc2300640f7a
-// 创建数据库
-// CREATE DATABASE blogs DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-// 创建表
-// https://www.jianshu.com/p/3e35db2c8d6c
-// DROP TABLE IF EXISTS `article`;
-// CREATE TABLE IF NOT EXISTS `article`(
-//     `id` INT UNSIGNED AUTO_INCREMENT COMMENT '主键(自增长)',
-//     `title` VARCHAR(100) NOT NULL COMMENT '文章标题',
-//     `author` VARCHAR(40) NOT NULL COMMENT '文章作者',
-//     `content`  TEXT NOT NULL COMMENT '文章内容',
-//     `category` VARCHAR(40) NOT NULL COMMENT '文章分类',
-//     `createdAt` DATE COMMENT '创建时间',
-//     `updatedAt` DATE COMMENT '更新时间',
-//     PRIMARY KEY ( `id` )
-//  )COMMENT = '文章表' ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 module.exports = {
     sequelize
