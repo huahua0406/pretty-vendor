@@ -49,8 +49,6 @@ function formatMessage(result){
     return message;
 }
 
-// exports.formatMessage=formatMessage
-
 
 module.exports = {
     getSignature,
