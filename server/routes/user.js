@@ -9,5 +9,7 @@ router.post('/user/login',UserController.login);
 
 router.post('/user/get_user_info',UserController.getUserInfo)
 
+router.post('/user/update_user_avatar',UserController.updateUserAvatar)
+
 
 module.exports = router

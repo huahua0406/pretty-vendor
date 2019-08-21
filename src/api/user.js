@@ -42,5 +42,12 @@ export default {
       method: 'post',
       data
     })
+  },
+  updateUserAvatar(data){
+    return request({
+        url: '/user/update_user_avatar',
+        method: 'post',
+        data
+      })
   }
 }

@@ -30,7 +30,7 @@ class UserModel {
     }
 
     /**
-     * 查询用户
+     * 查询用户名密码
      * @param data
      * @returns {Promise<*>}
      */
@@ -50,6 +50,28 @@ class UserModel {
      */
     static async userInfo(id) {
         return await User.findByPk(id);
+    }
+
+    /**
+     * 更新用户头像
+     * @param user_id
+     * @returns {Promise<Model>}
+     */
+    static async updateUserAvatar(url, user_id) {
+        try {
+            return await User.update(
+                {
+                    headimgurl: url
+                },
+                {
+                    where: {
+                        id: user_id
+                    }
+                }
+            );
+        } catch (err) {
+            console.log(err);
+        }
     }
 }
 

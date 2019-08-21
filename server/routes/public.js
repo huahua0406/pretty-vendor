@@ -35,7 +35,7 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 router.post('/public/upload',upload.single('file'),async(ctx,next)=>{
-    const prefix = 'http://localhost:3000/public/uploads/'
+    const prefix = 'http://118.31.77.247:3000/public/uploads/'
     ctx.body = {
       filename: prefix + ctx.req.file.filename//返回文件名
     }

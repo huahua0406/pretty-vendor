@@ -38,6 +38,11 @@ axiosInstance.interceptors.response.use(
                 // 未登录则跳转登录页面，并携带当前页面的路径
                 // 在登录成功后返回当前页面，这一步需要在登录页操作。
                 case 401:
+                    Toast({
+                        message: '登录过期，请重新登录',
+                        duration: 1000,
+                        forbidClick: true
+                    })
                     router.replace({
                         path: '/login',
                         query: {

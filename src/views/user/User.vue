@@ -1,7 +1,7 @@
 <template>
     <div class="user">
         <div class="user-header">
-            <img alt="avatar" src="http://118.31.77.247/static/logo.png" class="avatar" />
+            <img alt="avatar" :src="userInfo.headimgurl||'http://118.31.77.247/static/logo.png'" class="avatar" />
             <span class="nickname">{{userInfo.username}}</span>
         </div>
         <van-row class="user-links">
@@ -51,21 +51,24 @@ export default {
     background: #ededed;
     &-header {
         width: 100%;
-        height: 35vw;
+        height: 30vw;
         background-color: #ab956d;
         color: #fff;
         display: flex;
         align-items: center;
-        padding: 15px;
+        padding: 10px 15px;
         font-size: 14px;
     }
     &-header .avatar {
-        height: 100px;
-        width: 100px;
+        height: 60px;
+        width: 60px;
+        background: #f5f5f5;
         border-radius: 50%;
     }
     &-header .nickname {
         margin-left: 10px;
+        font-size: 18px;
+        flex: 1;
     }
     &-group {
         margin-bottom: 10px;

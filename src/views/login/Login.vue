@@ -44,19 +44,24 @@ export default {
                 })
                 .then(res => {
                     this.loading = false;
-                    this.$toast('登录成功');
-                    localStorage.setItem('token', res.data.token);
-                    this.$api
-                        .getUserInfo()
-                        .then(res => {
-                            this.updateUserInfo(res.data.data)
-                            this.$router.replace('/home');
-                        })
-                        .catch(err => {
-                            console.log(err);
-                        });
+                    if (res.data.code == 0) {
+                        this.$toast('登录成功');
+                        localStorage.setItem('token', res.data.token);
+                        this.$api
+                            .getUserInfo()
+                            .then(res => {
+                                this.updateUserInfo(res.data.data);
+                                this.$router.replace('/home');
+                            })
+                            .catch(err => {
+                                console.log(err);
+                            });
+                    } else {
+                        this.$toast(res.data.msg);
+                    }
                 })
                 .catch(err => {
+                    this.loading = false;
                     console.log(err);
                 });
         }
@@ -67,9 +72,10 @@ export default {
 <style lang="scss" scoped>
 .login-wrapper {
     height: 100%;
+    background: #fff;
 }
 .logo-wrap {
-    margin: 50px 0;
+    padding: 50px 0;
 }
 .logo-wrap .app-logo {
     width: 60px;
@@ -94,5 +100,6 @@ export default {
 .reg-link {
     text-align: center;
     text-decoration: underline;
+    color: #000;
 }
 </style>

@@ -16,6 +16,10 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING(50),
         allowNull: false
     },
+    headimgurl: {
+        type: DataTypes.STRING(255),
+        allowNull: true
+    },
     extend: {
       type: DataTypes.STRING(255),
       allowNull: true

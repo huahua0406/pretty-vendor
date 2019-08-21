@@ -17,6 +17,7 @@
             <h2 class="recent-title">最近新品</h2>
             <product-list :products="recentList"></product-list>
         </div>
+        <!-- <van-divider>已经到底了</van-divider> -->
         <tabbar></tabbar>
     </div>
 </template>
