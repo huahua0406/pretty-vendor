@@ -62,7 +62,7 @@ export default {
     },
     methods: {
         getAreaName(val1, val2, val3) {
-            return areaList.province_list[val1] + areaList.city_list[val2] + areaList.country_list[val3];
+            return areaList.province_list[val1] + areaList.city_list[val2] + areaList.county_list[val3];
         },
         onSubmit() {
             if (!this.form.name) {
