@@ -28,7 +28,3 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-
-// todo
-<!-- 个人资料修改 -->
-<!-- 地址修改 -->
