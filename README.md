@@ -6,28 +6,29 @@
 ## 安装与运行
 
 ### 启动后端服务
- 进入server目录，安装依赖
+ 1. 进入server目录，安装依赖
  ```
   npm install
  ```
- 启动koa2项目：
+ 2. server目录下启动koa2项目：
  ```
   npm nun dev
  ```
  
 
 ### 运行前端项目
+1. 安装依赖
 
 ```
 npm install
 ```
 
-### 运行项目
+2. 运行项目
 ```
 npm run serve
 ```
 
-### 打包构建
+3.打包构建
 ```
 npm run build
 ```
