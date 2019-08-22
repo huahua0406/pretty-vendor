@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
     name: 'Profile',
     data() {
@@ -20,6 +21,7 @@ export default {
         };
     },
     methods: {
+        ...mapActions('user', ['updateUserInfo']),
         afterRead(file) {
             // 此时可以自行将文件上传至服务器
             // console.log(file);
