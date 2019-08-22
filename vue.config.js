@@ -1,6 +1,7 @@
 // vue.config.js
 const path = require('path')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
+// 定义压缩文件类型
 const productionGzipExtensions = ['js', 'css']
 const isProduction = process.env.NODE_ENV === 'production'
 
