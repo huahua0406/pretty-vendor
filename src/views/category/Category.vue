@@ -158,7 +158,7 @@ export default {
         .goods-list {
             padding: 20px;
             box-sizing: border-box;
-            height: calc(100vh - 50px);
+            // height: calc(100vh - 50px);
             .item-header {
                 .item-banner-wrap {
                     .item-banner {

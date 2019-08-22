@@ -43,7 +43,15 @@ export default {
                     console.log(res);
                     if (res.data.code == 0) {
                         this.$toast(res.data.msg);
-                        this.$router.go(-1);
+                        this.$api
+                            .getUserInfo()
+                            .then(res => {
+                                this.updateUserInfo(res.data.data);
+                                this.$router.go(-1);
+                            })
+                            .catch(err => {
+                                console.log(err);
+                            });
                     } else {
                         this.$toast(res.data.msg);
                     }

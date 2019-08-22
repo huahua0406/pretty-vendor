@@ -5,7 +5,7 @@ const productionGzipExtensions = ['js', 'css']
 const isProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
-    publicPath: '/',
+    publicPath: process.env.NODE_ENV === 'production' ? '/pretty-vendor/' : '/',
     lintOnSave: false,
     productionSourceMap: false,
     devServer: {

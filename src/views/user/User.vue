@@ -1,25 +1,25 @@
 <template>
     <div class="user">
         <div class="user-header">
-            <img alt="avatar" :src="userInfo.headimgurl||'http://118.31.77.247/static/logo.png'" class="avatar" />
+            <img alt="avatar" :src="userInfo.headimgurl||require('@/assets/avatar.png')" class="avatar" />
             <span class="nickname">{{userInfo.username}}</span>
         </div>
         <van-row class="user-links">
             <van-col span="6">
-                <van-icon name="pending-payment" />待付款
+                <van-icon name="pending-payment" @click="$toast('暂时无法查看哦')"/>待付款
             </van-col>
             <van-col span="6">
-                <van-icon name="records" />待接单
+                <van-icon name="records" @click="$toast('暂时无法查看哦')"/>待接单
             </van-col>
             <van-col span="6">
-                <van-icon name="tosend" />待发货
+                <van-icon name="tosend" @click="$toast('暂时无法查看哦')"/>待发货
             </van-col>
             <van-col span="6">
-                <van-icon name="logistics" />已发货
+                <van-icon name="logistics" @click="$toast('暂时无法查看哦')" />已发货
             </van-col>
         </van-row>
 
-        <van-cell-group class="user-group">
+        <van-cell-group class="user-group" @click="$toast('暂时无法查看哦')">
             <van-cell icon="records" is-link title="全部订单" />
         </van-cell-group>
 

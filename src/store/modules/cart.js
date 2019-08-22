@@ -1,3 +1,4 @@
+import Vue from 'vue'
 export default {
     namespaced: true,
     state: {
@@ -35,8 +36,7 @@ export default {
                 let newItem = Object.assign({}, item, { isChecked: true });
                 state.cartList.splice(index, 1, newItem);
             } else {
-                state.cartList[index].isChecked = !state.cartList[index]
-                    .isChecked;
+                state.cartList[index].isChecked = !state.cartList[index].isChecked;
             }
             localStorage.setItem('cartList', JSON.stringify(state.cartList));
         },
@@ -44,8 +44,9 @@ export default {
             let data = state.cartList;
             let len = state.cartList.length;
             for (let i = 0; i < len; i++) {
-                data[i].isChecked = !flag;
+                Vue.set(data[i], 'isChecked', !flag)
             }
+            state.cartList = data;
             localStorage.setItem('cartList', JSON.stringify(state.cartList));
         }
     },

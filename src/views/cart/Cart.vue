@@ -82,7 +82,6 @@ export default {
     methods: {
         ...mapActions('cart', ['addProduct', 'cutProduct', 'delProduct', 'toggleSingleChecked', 'toggleAllChecked']),
         onSubmit() {
-            console.log()
             this.$toast(`总价：￥ ${this.tolalPrice}`);
         },
         findIndexById(id) {
@@ -111,6 +110,7 @@ export default {
             this.toggleSingleChecked(index);
         },
         _toggleAllChecked() {
+            console.log(this.isAllChecked)
             this.toggleAllChecked(this.isAllChecked);
         }
     }
@@ -122,6 +122,7 @@ export default {
     .cart-box {
         // overflow: hidden;
         margin-bottom: 46px;
+        background: #fff;
         .cart-item {
             display: flex;
             padding: 10px 10px 10px 0;
