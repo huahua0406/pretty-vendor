@@ -110,7 +110,6 @@ export default {
             this.toggleSingleChecked(index);
         },
         _toggleAllChecked() {
-            console.log(this.isAllChecked)
             this.toggleAllChecked(this.isAllChecked);
         }
     }
