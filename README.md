@@ -28,7 +28,7 @@ npm install
 npm run serve
 ```
 
-3.打包构建
+3. 打包构建
 ```
 npm run build
 ```
