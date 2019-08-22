@@ -1,6 +1,6 @@
 <template>
     <div class="about">
-        github:地址
+        github:https://github.com/huahua0406/pretty-vendor
     </div>
 </template>
 
