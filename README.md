@@ -1,6 +1,6 @@
 # pretty-vendor
 
-基于Vue-CLI3.0，前端用Vue全家桶，后端用Koa2+Sequelize+Mysql的一次实践。
+基于Vue-CLI3.0，前端用Vue全家桶，后端用Koa2+Sequelize+Mysql，通过Nginx部署的一个SPA应用。
 
 
 ## 安装与运行
