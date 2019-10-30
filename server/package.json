@@ -27,7 +27,7 @@
     "mysql": "^2.17.1",
     "mysql2": "^1.6.5",
     "raw-body": "^2.4.0",
-    "sequelize": "^5.8.7",
+    "sequelize": "^5.15.1",
     "svg-captcha": "^1.4.0",
     "xml2js": "^0.4.19"
   },
